@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red115\green138\blue4;\red255\green255\blue254;\red38\green38\blue38;
+\red165\green119\blue5;\red0\green0\blue0;\red71\green91\blue98;}
+{\*\expandedcolortbl;;\cssrgb\c52157\c60000\c0;\cssrgb\c100000\c100000\c99608;\cssrgb\c20000\c20000\c20000;
+\cssrgb\c70980\c53725\c0;\cssrgb\c0\c0\c0;\cssrgb\c34510\c43137\c45882;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 LOAD\cf4 \strokec4  \cf2 \strokec2 CSV\cf4 \strokec4  \cf2 \strokec2 WITH\cf4 \strokec4  \cf2 \strokec2 HEADERS\cf4 \strokec4  \cf2 \strokec2 FROM\cf4 \strokec4  \cf5 \strokec5 'file:///player_nodes.csv'\cf4 \strokec4  \cf2 \strokec2 AS\cf4 \strokec4  row\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 MERGE\cf4 \strokec4  \cf7 \strokec7 (\cf4 \strokec4 n\cf7 \strokec7 :\cf4 \strokec4 player \cf7 \strokec7 \{\cf4 \strokec4 player_id\cf7 \strokec7 :\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 player_id\cf7 \strokec7 \})\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 SET\cf4 \strokec4  n\cf7 \strokec7 .\cf4 \strokec4 player \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 player\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb3 \strokec4 n\cf7 \strokec7 .\cf4 \strokec4 position \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 position\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 n\cf7 \strokec7 .\cf4 \strokec4 team \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 team\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 n\cf7 \strokec7 .\cf4 \strokec4 team_id \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 team_id\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 n\cf7 \strokec7 .\cf4 \strokec4 receive_id \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 receive_id\cf7 \strokec7 ;\cf0 \cb1 \strokec6 \
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \strokec2 LOAD\cf4 \strokec4  \cf2 \strokec2 CSV\cf4 \strokec4  \cf2 \strokec2 WITH\cf4 \strokec4  \cf2 \strokec2 HEADERS\cf4 \strokec4  \cf2 \strokec2 FROM\cf4 \strokec4  \cf5 \strokec5 'file:///pass_relationships.csv'\cf4 \strokec4  \cf2 \strokec2 AS\cf4 \strokec4  row\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 MERGE\cf4 \strokec4  \cf7 \strokec7 (\cf2 \strokec2 start\cf7 \strokec7 :\cf4 \strokec4 player \cf7 \strokec7 \{\cf4 \strokec4 player_id\cf7 \strokec7 :\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 player_id\cf7 \strokec7 \})\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 MERGE\cf4 \strokec4  \cf7 \strokec7 (\cf2 \strokec2 end\cf7 \strokec7 :\cf4 \strokec4 player \cf7 \strokec7 \{\cf4 \strokec4 player_id\cf7 \strokec7 :\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 receive_id\cf7 \strokec7 \})\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 MERGE\cf4 \strokec4  \cf7 \strokec7 (\cf2 \strokec2 start\cf7 \strokec7 )-[\cf4 \strokec4 r\cf7 \strokec7 :\cf4 \strokec4 Passes_to\cf7 \strokec7 ]->(\cf2 \strokec2 end\cf7 \strokec7 )\cf0 \cb1 \strokec6 \
+\cf2 \cb3 \strokec2 SET\cf4 \strokec4  r\cf7 \strokec7 .\cf4 \strokec4 timestamp \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 timestamp\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 period \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 period\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 location \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 location\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 match_id \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 match_id\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_body_part \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_body_part\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_cross \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 cross\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_end_location \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_end_location\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_goal_assist \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_goal_assist\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_height \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_height\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_length \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_length\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_outcome \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_outcome\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_shot_assist \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_shot_assist\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 pass_type \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 pass_type\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 play_pattern \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 play_pattern\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 possession \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 possession\cf7 \strokec7 ,\cf0 \cb1 \strokec6 \
+\cf4 \cb3 \strokec4 r\cf7 \strokec7 .\cf4 \strokec4 under_pressure \cf7 \strokec7 =\cf4 \strokec4  row\cf7 \strokec7 .\cf4 \strokec4 under_pressure\cf7 \strokec7 ;\cf0 \cb1 \strokec6 \
+}
